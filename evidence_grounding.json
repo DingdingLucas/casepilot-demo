@@ -1,0 +1,356 @@
+{
+  "_meta": {
+    "purpose": "Evidence-grounding layer for cases_index.json (v3). Maps each case_id to the ACTUAL documents in its Drive folder (verified titles + file IDs, indexed 2026-07-12). The search script only allows argument sources that name a document in this file; page cites are only allowed once verified_pages is populated by a doc-verification pass.",
+    "generated": "2026-07-12",
+    "grounding_status_legend": {
+      "documents_indexed": "Folder contents enumerated; document titles/IDs are real. Page-level cites NOT yet verified (verified_pages=null).",
+      "doc_verified": "Pages/quotes checked against the PDFs."
+    },
+    "doc_type_vocabulary": ["complaint", "answer", "judicial_opinion", "findings_of_fact", "proposed_findings", "expert_report", "rebuttal_expert_report", "expert_declaration", "expert_demonstrative", "daubert_brief", "summary_judgment_brief", "jmol_brief", "trial_brief", "pretrial_brief", "post_trial_brief", "opening_statement", "closing_statement", "appellate_brief", "amicus_brief", "cert_petition", "consent_decree", "agency_statement", "procedural", "brief"],
+    "url_pattern": "https://drive.google.com/file/d/{file_id}/view",
+    "note": "Duplicate Sabre folder (1MfEHqxP2oHoiSosKrUvl2oploBU2lH8j) not indexed; primary is the user's folder."
+  },
+  "cases": {
+    "microsoft-1998": {
+      "folder_id": "1jNr5COyK3iSTvANi6bnEN6x-8oUoaPS3",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Findings_of_Fact.pdf", "doc_type": "findings_of_fact", "file_id": "17EmGPlRjGFje7X5JEuE8i25RUAM2LBeJ", "verified_pages": null},
+        {"title": "02_Conclusions_of_Law.pdf", "doc_type": "judicial_opinion", "file_id": "1ehI3MhG9OrosmHJAPGkxFZPCHalaSMgu", "verified_pages": null},
+        {"title": "03_DC_Circuit_Opinion_2001.pdf", "doc_type": "judicial_opinion", "file_id": "1_ZOnssV_LB5Uey5yd7jWqvOxXwquThyS", "verified_pages": null},
+        {"title": "04_Court_of_Appeals_Opinion_2004.pdf", "doc_type": "judicial_opinion", "file_id": "1NYM7G1G1USbjlKYmKxfHmAjrNKWtX31w", "verified_pages": null},
+        {"title": "05_Brief_for_Appellees_US_and_State_Plaintiffs.pdf", "doc_type": "appellate_brief", "file_id": "1uEbLZQZKv8XtnTAANTrY2DdUvFLZrkqd", "verified_pages": null},
+        {"title": "06_Joint_Pretrial_Statement.pdf", "doc_type": "procedural", "file_id": "100eBLAiMx9W_W5gW9l3TKLWgog_s0HaV", "verified_pages": null},
+        {"title": "07_Complaint.pdf", "doc_type": "complaint", "file_id": "1wUOnUWGWBBv8ujIQCM4hfCwyg2c0GNEN", "verified_pages": null}
+      ]
+    },
+    "visa-mastercard-1998": {
+      "folder_id": "1AALuyFlX9NkNrg3mb7coUfJ80u-3DIMa",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_District_Court_Decision.pdf", "doc_type": "judicial_opinion", "file_id": "1SKi9MvM6JVcTPeyrHTuRuLt87YpkIPbW", "verified_pages": null},
+        {"title": "02_Second_Circuit_Decision.pdf", "doc_type": "judicial_opinion", "file_id": "11ItEZZobYzS1gRz17hdKy64Lw2kXHrou", "verified_pages": null},
+        {"title": "03_Brief_for_the_United_States.pdf", "doc_type": "appellate_brief", "file_id": "1LtN0qsT8fH1znPecjN1vucYNdQ4h2HDD", "verified_pages": null},
+        {"title": "04_Memorandum_in_Support_of_Proposed_Relief.pdf", "doc_type": "brief", "file_id": "1dDE7ttCKPL5-jX-d_0BoKNCO5YufRL5i", "verified_pages": null},
+        {"title": "05_Complaint.pdf", "doc_type": "complaint", "file_id": "1luvr7iTJT97omb95qlb2FNzCO1xFvio7", "verified_pages": null}
+      ]
+    },
+    "dentsply-1999": {
+      "folder_id": "1PaUTLayo7qNYUJWlRln768kHHElLIJQB",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Reply_to_Proposed_Findings_and_Brief.pdf", "doc_type": "post_trial_brief", "file_id": "1cR5UFs5n8ba3PtiO6hZGSoSJ3dmGKUzk", "verified_pages": null},
+        {"title": "02_Brief_in_Support_of_Proposed_Findings.pdf", "doc_type": "post_trial_brief", "file_id": "1WrppKAnbAz5JAZerxPVV7fsxrtE0jG-o", "verified_pages": null},
+        {"title": "03_Proposed_Findings_of_Fact_and_Conclusions_of_Law.pdf", "doc_type": "proposed_findings", "file_id": "1l_8JdrVRRJniKOerIW_QEqm65iNLmvhX", "verified_pages": null},
+        {"title": "04_Expert_Report_Jerry_Wind.pdf", "doc_type": "expert_report", "file_id": "1GXftfZwDlfcDvOyqtXnPyT4YAldrTd6S", "verified_pages": null},
+        {"title": "05_Rebuttal_Expert_Report_David_Reitman.pdf", "doc_type": "rebuttal_expert_report", "file_id": "1RzqngdZcnzRiziTBBucx_QWhonZ2ok4H", "verified_pages": null},
+        {"title": "06_Complaint.pdf", "doc_type": "complaint", "file_id": "1vbicQm9JvHqi04wLkDJm2zrzHgDumIj1", "verified_pages": null}
+      ]
+    },
+    "oracle-peoplesoft-2004": {
+      "folder_id": "1Wg7i4KaA2EwXtdIxtO7NY4t9QHiBmN3N",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Findings_of_Fact_Conclusions_of_Law_and_Order.pdf", "doc_type": "judicial_opinion", "file_id": "1jfHwqiqC6TDvvfsV65Kc2BsyPxo9xHnO", "verified_pages": null},
+        {"title": "02_Closing_Argument_Presentation.pdf", "doc_type": "closing_statement", "file_id": "1X4TGYF1a_XDAl72oVL4x7PetfiZX-_5T", "verified_pages": null},
+        {"title": "03_Post_Trial_Brief_Public_Redacted.pdf", "doc_type": "post_trial_brief", "file_id": "12BPUMKS5pY5iZ4KTGSzlHfuUR9NI3qra", "verified_pages": null},
+        {"title": "04_Proposed_Findings_of_Fact_Public_Redacted.pdf", "doc_type": "proposed_findings", "file_id": "1JFVp9S-oj1fa6rjyw-ifYyZJJeQfbGuw", "verified_pages": null},
+        {"title": "05_Proposed_Conclusions_of_Law.pdf", "doc_type": "proposed_findings", "file_id": "1Zw5fpAMIW75EN4P7QZsFd4QystPxTP4v", "verified_pages": null},
+        {"title": "06_Trial_Brief_Public_Redacted.pdf", "doc_type": "trial_brief", "file_id": "1Ltl9Lz-cr2sRT7n-Am5_T0850plyz8ks", "verified_pages": null},
+        {"title": "07_First_Amended_Complaint.pdf", "doc_type": "complaint", "file_id": "1lHnHwx0VXes6fk_c4C5yK0CFm0BVe-Iz", "verified_pages": null}
+      ]
+    },
+    "amex-2010": {
+      "folder_id": "1oi0wIK7cUWcDsJCbzubgqMJxBanRmR5E",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Decision.pdf", "doc_type": "judicial_opinion", "file_id": "1mxxVby6YJ6yVoNC9OBnC6urUf9Gse1xC", "verified_pages": null},
+        {"title": "02_Proposed_Findings_of_Fact_Public_Redacted.pdf", "doc_type": "proposed_findings", "file_id": "1LZi_zxmOxQTwSg5P6Fom8J5OQKGOphG3", "verified_pages": null},
+        {"title": "03_Closing_Argument_Presentation_Public.pdf", "doc_type": "closing_statement", "file_id": "1vS3rXVO4Fev0u1EXkXgwpEAz2w86ck9Z", "verified_pages": null},
+        {"title": "04_Post_Trial_Memorandum_Public.pdf", "doc_type": "post_trial_brief", "file_id": "1UsXhSGdDGfVzBWzUEzhmzEFKS5TcfViE", "verified_pages": null},
+        {"title": "05_Proposed_Conclusions_of_Law.pdf", "doc_type": "proposed_findings", "file_id": "1wW70yd4thf3e6FLRM_z6SwUYSEU61_XW", "verified_pages": null},
+        {"title": "06_Opening_Statement_Public.pdf", "doc_type": "opening_statement", "file_id": "1PW5r6Yu9Bsj7TWvN7MwYRYGo3Xsgbieb", "verified_pages": null},
+        {"title": "07_Pre_Trial_Memorandum_Public.pdf", "doc_type": "pretrial_brief", "file_id": "1CT4KDZ2U4YPCGqbaW3IHlv2CKz3TkzJI", "verified_pages": null},
+        {"title": "08_Complaint.pdf", "doc_type": "complaint", "file_id": "1ECTw2NSaGquf9xRshsx2de8OWmNudNey", "verified_pages": null}
+      ]
+    },
+    "hr-block-taxact-2011": {
+      "folder_id": "1dGf8jzS8GmC_zQ4RKPxtKo9j5oFuMyPw",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Memorandum_Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "1JVO94nQUj8NjVDwKP8aoRjZ4nt8XGiAu", "verified_pages": null},
+        {"title": "02_PI_Memorandum.pdf", "doc_type": "brief", "file_id": "1cB8EdNMmmD8Yy-SPO_56VjdBKY7-tCyE", "verified_pages": null},
+        {"title": "03_PI_Reply_Memorandum.pdf", "doc_type": "brief", "file_id": "1OzuzOKjeMd3BiZyOVAvoRHUHH4-kc9sH", "verified_pages": null},
+        {"title": "04_Complaint.pdf", "doc_type": "complaint", "file_id": "15Jok-oqDS9cUNz5bih6qqT6kL9gU9K93", "verified_pages": null}
+      ]
+    },
+    "bazaarvoice-2012": {
+      "folder_id": "1-UXgvkfF2KeXMLByN1JaYgpeyZjxaK2r",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Memorandum_Opinion_Public_Redacted.pdf", "doc_type": "judicial_opinion", "file_id": "1iBxUBab-Ss7BHEZ9531X7vENcmXi68wx", "verified_pages": null},
+        {"title": "02_Proposed_Conclusions_of_Law_Public.pdf", "doc_type": "proposed_findings", "file_id": "1x49B9OLK6XVMrx3iZduhnoe7kG8M4QbX", "verified_pages": null},
+        {"title": "03_Post_Trial_Proposed_Findings_of_Fact_Public.pdf", "doc_type": "proposed_findings", "file_id": "17_TjKRN7XZPDN3OFmvXg9olBJe-wZkqo", "verified_pages": null},
+        {"title": "04_Post_Trial_Brief_Public.pdf", "doc_type": "post_trial_brief", "file_id": "1Jee-eyf-LkfGITHeY2NRcKjqNgDwe-mU", "verified_pages": null},
+        {"title": "05_Closing_Statement_Presentation.pdf", "doc_type": "closing_statement", "file_id": "1dpm9eCnfQzYo2i_nKPJ3XHBXgy2GQGhs", "verified_pages": null},
+        {"title": "06_Trial_Brief_and_Motion_in_Limine.pdf", "doc_type": "trial_brief", "file_id": "1P1XxcUGVs-yDYHg-IrJE0Bhyv14YImLV", "verified_pages": null},
+        {"title": "07_Complaint.pdf", "doc_type": "complaint", "file_id": "1CSyGyjJdb8JJzv_36kMHERQt55yeMbUS", "verified_pages": null}
+      ]
+    },
+    "apple-ebooks-2012": {
+      "folder_id": "1hE_oP2DIXevzI44XI1RNLbj3rmso5DwB",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Appellate_Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "1fDBOSpVqJUb6358rf9c1B5xPpCb4RJX_", "verified_pages": null},
+        {"title": "02_Opinion_and_Order.pdf", "doc_type": "judicial_opinion", "file_id": "1jbEi1UPxBVX7Flwk0Nu9wEyBn7G9XPqX", "verified_pages": null},
+        {"title": "03_Closing_Argument_Presentation.pdf", "doc_type": "closing_statement", "file_id": "1OUYHP-is8x5yZlmz26-dnnxKw-klg88U", "verified_pages": null},
+        {"title": "04_Opening_Statement_Presentation.pdf", "doc_type": "opening_statement", "file_id": "1dtj4NjLClL1HoOGnGc2Je1Tx0yCu7PD5", "verified_pages": null},
+        {"title": "05_Proposed_Findings_of_Fact.pdf", "doc_type": "proposed_findings", "file_id": "1bs8AzsyYlzNIlhqCBw8bSjqAbJX3Zq7l", "verified_pages": null},
+        {"title": "06_Proposed_Conclusions_of_Law.pdf", "doc_type": "proposed_findings", "file_id": "1yV0xnUXRduuge9_I9l6goFLTn2N0aRAH", "verified_pages": null},
+        {"title": "07_Pretrial_Memorandum_of_Law.pdf", "doc_type": "pretrial_brief", "file_id": "1R_4bPx3pZy3-nLwunhMtk1R3XXH5RZ1k", "verified_pages": null},
+        {"title": "08_Complaint.pdf", "doc_type": "complaint", "file_id": "1OImVK_oSlNM1cgnJUGHfKe3_ew6J9kqr", "verified_pages": null}
+      ]
+    },
+    "electrolux-ge-2015": {
+      "folder_id": "1kuHB_pGBgZmZofGMyMAKRdjJ1ojIJkde",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Pretrial_Memorandum_Redacted.pdf", "doc_type": "pretrial_brief", "file_id": "15naG-9glMnSzBNZo4695EZiljrZw-ZvF", "verified_pages": null},
+        {"title": "02_Opening_Statement_Redacted.pdf", "doc_type": "opening_statement", "file_id": "11KY0ra_WIWcHSQa2SCUgMk-26YqbnMjI", "verified_pages": null},
+        {"title": "03_Complaint.pdf", "doc_type": "complaint", "file_id": "130aBEB0QHCc1idSEYomIbz6adtxvMNci", "verified_pages": null}
+      ],
+      "gaps": ["No judicial opinion exists (deal abandoned mid-trial)."]
+    },
+    "anthem-cigna-2015": {
+      "folder_id": "1hEWk0SM8OA9FIxXz64ucq02YJvUxLJoJ",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Appellate_Court_Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "1w8eESjhy6alpwpOPSk1-LD39aXiSjxQL", "verified_pages": null},
+        {"title": "02_Memorandum_Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "1RO8YiraXN-XEyhwebHN2rzBVfO39BSwi", "verified_pages": null},
+        {"title": "03_Proposed_Findings_of_Fact_Phase_II_Redacted.pdf", "doc_type": "proposed_findings", "file_id": "1zt7ESpEb7cheRyHoBbEeuu7UQsKjbZBG", "verified_pages": null},
+        {"title": "04_Proposed_Conclusions_of_Law_Phase_II.pdf", "doc_type": "proposed_findings", "file_id": "1UmXxgz0cHbBegz53OG8YekfDePQRW6gD", "verified_pages": null},
+        {"title": "05_Opening_Statement_Phase_II.pdf", "doc_type": "opening_statement", "file_id": "1myHGpsfG7i9mj0uzIMJvknxvmj6cNp5t", "verified_pages": null},
+        {"title": "06_Opening_Statement_Redacted.pdf", "doc_type": "opening_statement", "file_id": "1FmHvQgiQpsHBswTPsTzmP_V8xibUpFUE", "verified_pages": null},
+        {"title": "07_Pretrial_Brief.pdf", "doc_type": "pretrial_brief", "file_id": "1bb7V_sAnnhLISOXaBKQs0ued58Q29xII", "verified_pages": null},
+        {"title": "08_Complaint.pdf", "doc_type": "complaint", "file_id": "1EXhdo09MjT5giz-VatkTK2N65lt2yOtt", "verified_pages": null}
+      ]
+    },
+    "aetna-humana-2016": {
+      "folder_id": "1qOIT87hc6qnWTObdX2iIDrFrCFab5xLz",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Memorandum_Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "17BqOPTzVJBWGqck_toBL-rll4d9mJVZx", "verified_pages": null},
+        {"title": "02_Closing_Presentation_Redacted.pdf", "doc_type": "closing_statement", "file_id": "1oF6s0cWuWNh7VkJ2qFh09ylU0sq3fJC1", "verified_pages": null},
+        {"title": "03_Opening_Statement.pdf", "doc_type": "opening_statement", "file_id": "1q3q0y9kkWAk5ZHIW94Jx4NkQvyzFQfl3", "verified_pages": null},
+        {"title": "04_Pretrial_Brief.pdf", "doc_type": "pretrial_brief", "file_id": "1Eyzp3pxA8fZGp-bgtP-mHa_zHC0xfIa6", "verified_pages": null},
+        {"title": "05_Complaint.pdf", "doc_type": "complaint", "file_id": "1YK3yXjQrpr-0knMYZegbD3UEAocf73ka", "verified_pages": null}
+      ]
+    },
+    "energysolutions-wcs-2016": {
+      "folder_id": "1zCU8QIDq-0248Hp_5JMmLrD-5isH3vu8",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Opinion_Public_Redacted.pdf", "doc_type": "judicial_opinion", "file_id": "1EArS5NEY5ol3djVjNSqSq2UbyWu8XWt9", "verified_pages": null},
+        {"title": "02_Opening_Statement.pdf", "doc_type": "opening_statement", "file_id": "12Jt2OlyAxdZsiIwtJtsNj4fcyUdpyErr", "verified_pages": null},
+        {"title": "03_Complaint.pdf", "doc_type": "complaint", "file_id": "1YqowMBNFjaniILupaJfVD-Q5EwUEfyNZ", "verified_pages": null}
+      ]
+    },
+    "att-directv-timewarner-2017": {
+      "folder_id": "10xlSikBALPxCgL02SsPvi5EKMDJ0Ky83",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Post_Trial_Brief_Redacted.pdf", "doc_type": "post_trial_brief", "file_id": "1Sex0yL-nCjxVqNh9lKwMsAyKNCrOe1Cm", "verified_pages": null},
+        {"title": "02_Supplemental_Expert_Report_Carl_Shapiro_Redacted.pdf", "doc_type": "expert_report", "file_id": "1hrsldIt5nmpUw7CQE3hklVFYDjuRC7LE", "verified_pages": null},
+        {"title": "03_Trial_Brief_Redacted.pdf", "doc_type": "trial_brief", "file_id": "11DeLM0LPyXpFy85TFssF-HeqWtszllPj", "verified_pages": null},
+        {"title": "04_Complaint.pdf", "doc_type": "complaint", "file_id": "1K7sMp1yniQZPopbh7Y74wHiB3mQClh3M", "verified_pages": null},
+        {"title": "05_Proposed_Findings_of_Fact_Redacted.pdf", "doc_type": "proposed_findings", "file_id": "1DUxIW2JPSKh8DBVWhG0y462yisax9KFh", "verified_pages": null},
+        {"title": "06_Proposed_Conclusions_of_Law_Redacted.pdf", "doc_type": "proposed_findings", "file_id": "1wtYL4idvfxK0GGy0kpQoqKVRtEF_Ddm-", "verified_pages": null}
+      ],
+      "gaps": ["District-court opinion (310 F. Supp. 3d 161) and D.C. Cir. opinion are NOT in the folder."]
+    },
+    "cvs-aetna-2018": {
+      "folder_id": "1-5Us22ScHVK0Gklk2ug7htPSPPgwKHR9",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "Complaint.pdf", "doc_type": "complaint", "file_id": "1PX0T3o32I7nozaghZZVAXPbDS1wK2zSO", "verified_pages": null},
+        {"title": "Final Judgment.pdf", "doc_type": "consent_decree", "file_id": "1G-3asr_csRL7TWZ8rupFiJSvCbvu2Low", "verified_pages": null},
+        {"title": "Proposed Final Judgment.pdf", "doc_type": "consent_decree", "file_id": "1HEmXtsd9j1jFpSjI_eW5qP6lKUJN5ord", "verified_pages": null},
+        {"title": "Competitive Impact Statement.pdf", "doc_type": "agency_statement", "file_id": "1EBhp4uG9SvtBWzPhYCHrck4Zgh0yhHzc", "verified_pages": null},
+        {"title": "Motion of the United States to Limit the Scope of the Tunney Act Hearing and Exclude Irrelevant and Undisclosed Testimony.PDF", "doc_type": "brief", "file_id": "1zu6bUMFIDRR2C6C1Hqw_b4lp1ZGcKqS3", "verified_pages": null},
+        {"title": "United States’ Motion to Present Rebuttal Testimony and Evidence.pdf", "doc_type": "brief", "file_id": "1h1c5KN06OiD4snxTJigyUL721zAZB7mj", "verified_pages": null},
+        {"title": "United States’ Witness List and Request for Clarification of Procedures for Tunney Act Hearing.pdf", "doc_type": "procedural", "file_id": "1vQUrLOn0mFsc0ErP8Y9X1IkfmMUv1iYH", "verified_pages": null},
+        {"title": "Response of Plaintiff United States to Public Comments on the Proposed Final Judgment.pdf", "doc_type": "brief", "file_id": "1FxTHH1ryvg1TNM_z2nJTybPbkEHEudn3", "verified_pages": null},
+        {"title": "United States’ Supplemental Brief in Support of Entry of the Proposed Final Judgment.pdf", "doc_type": "brief", "file_id": "1CUxJvGysp36FGcJkargRC28W9cZXVo3l", "verified_pages": null}
+      ],
+      "gaps": ["Judge Leon's Tunney Act opinion (407 F. Supp. 3d 45) is NOT in the folder."]
+    },
+    "sabre-farelogix-2019": {
+      "folder_id": "1fSN_F5Jua0JYVqJAtaoYmuqpFuf3_Jri",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "Judge Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "19GzmJZtHIuVfuE3hYVmy_see8-KcoW7s", "verified_pages": null},
+        {"title": "plaintiff's opening statement.pdf", "doc_type": "opening_statement", "file_id": "1Hv1jyp4pYFgQtHlZcU65NZ-d2dyNQSg0", "verified_pages": null},
+        {"title": "plaintiff's closing statement.pdf", "doc_type": "closing_statement", "file_id": "1fPrFAPC-SmZv0oXSH9S79SX99NJlL7li", "verified_pages": null},
+        {"title": "PLAINTIFF’S PRETRIAL BRIEF REDACTED PUBLIC.pdf", "doc_type": "pretrial_brief", "file_id": "18jnNYDzAjqTTH-rZmDSptHqjqZ_GS24X", "verified_pages": null},
+        {"title": "complaint.pdf", "doc_type": "complaint", "file_id": "1-8pym50XzagzcwfcxZge-ctlsJ-ntsF6", "verified_pages": null}
+      ]
+    },
+    "google-search-2020": {
+      "folder_id": "12EwimvTubmysz3Tl7LZXbHuJWXcdWK8Y",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Memorandum_Opinion_on_Summary_Judgment.pdf", "doc_type": "judicial_opinion", "file_id": "11l_r4CgsljzL8cK16-B6ifhi6sKRj-UX", "verified_pages": null},
+        {"title": "02_Plaintiffs_Post_Trial_Brief_Redacted.pdf", "doc_type": "post_trial_brief", "file_id": "18cwBS-hLiijMvC8qsiq9W_i_gj-f8AAN", "verified_pages": null},
+        {"title": "03_Plaintiffs_Opening_Statement.pdf", "doc_type": "opening_statement", "file_id": "1zLs0SpBuU6iZoZ6XsUUodkiv2GL0aGQo", "verified_pages": null},
+        {"title": "04_Plaintiffs_Pretrial_Brief.pdf", "doc_type": "pretrial_brief", "file_id": "1B28qj2jY__qTs5hgsGOja5OlpF0VSMrv", "verified_pages": null},
+        {"title": "05_Complaint.pdf", "doc_type": "complaint", "file_id": "1iQF9I1Kzn5ymn-F6951SeTemzOEQAqwu", "verified_pages": null},
+        {"title": "06_Remedies_Memorandum_Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "1Wci7Ab6g3cU1oy1rR5USwQqc-Qh4_fL4", "verified_pages": null},
+        {"title": "07_Remedies_Post_Trial_Brief_Redacted.pdf", "doc_type": "post_trial_brief", "file_id": "1RmMbffIM42_t8_dztP0PYKquPzAAPJVQ", "verified_pages": null},
+        {"title": "08_Remedies_Opening_Statement_Redacted.pdf", "doc_type": "opening_statement", "file_id": "1CANKarkUE2bpCmy6nejSznbMAQhuDoQv", "verified_pages": null}
+      ],
+      "gaps": ["The Aug 2024 LIABILITY opinion ('Google is a monopolist') is NOT in the folder — only the summary-judgment and remedies opinions."]
+    },
+    "american-jetblue-nea-2021": {
+      "folder_id": "1A6x0DVnQGOmIV8-bodoiXaryf9MdiSc3",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "Complaint.pdf", "doc_type": "complaint", "file_id": "18-Io0ajwqBQ_lNh4DM6zhBYmKgE0BWG7", "verified_pages": null},
+        {"title": "judge opinion.pdf", "doc_type": "judicial_opinion", "file_id": "1Hrx1DmyL6ObSQM_60YZJWAez_pJcY5fH", "verified_pages": null},
+        {"title": "first circuit opinion.pdf", "doc_type": "judicial_opinion", "file_id": "16nucbFqw0hTB-MmYrakbITlVryxdYxy_", "verified_pages": null},
+        {"title": "Declaration of Dennis W. Carlton.pdf", "doc_type": "expert_declaration", "file_id": "1rl_8CUnvofcUYQMNloJMko3UP28lyaB7", "verified_pages": null},
+        {"title": "american_jetblue_dmass_exclude_miller_motion2022_09_02memo.pdf", "doc_type": "daubert_brief", "file_id": "1nX1Vrmhvah7TSjLnEVLE3NBBs_NkJwln", "verified_pages": null},
+        {"title": "american_jetblue_dmass_exclude_miller_reply2022_09_13.pdf", "doc_type": "daubert_brief", "file_id": "1fI3c9zsae5v8dOEioMG9v_XsLeRNSEdo", "verified_pages": null}
+      ],
+      "notes": "Daubert briefing targets DOJ expert Nathan Miller; Carlton declaration is defense-side. One duplicate Daubert reply PDF in folder not listed."
+    },
+    "bertelsmann-prh-simonschuster-2021": {
+      "folder_id": "1o6oP9bZXR7qAOEmuBLYe9q-6bfsZHZaW",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Memorandum_Opinion_Redacted.pdf", "doc_type": "judicial_opinion", "file_id": "1hEHS93t_O-wXtZaSg2RJPNmWQp1arKic", "verified_pages": null},
+        {"title": "02_Closing_Argument_Redacted.pdf", "doc_type": "closing_statement", "file_id": "1GWObt_osG-0ymtAOhdB9V1zYaDXeMJ8Y", "verified_pages": null},
+        {"title": "03_Dr_Nicholas_Hill_Demonstrative_Exhibits.pdf", "doc_type": "expert_demonstrative", "file_id": "1-4mDx9VPCKET9r1zr1vHtsGROGP4U8Lk", "verified_pages": null},
+        {"title": "04_Opening_Statement_Redacted.pdf", "doc_type": "opening_statement", "file_id": "1ONqpUQ5lJaRu4-hrWfCPNA_bUh581Y5c", "verified_pages": null},
+        {"title": "05_Pretrial_Brief_Redacted.pdf", "doc_type": "pretrial_brief", "file_id": "1RBe-lY3K-5Kgb20JPdt4EAPJsqnCEjtj", "verified_pages": null},
+        {"title": "06_Complaint.pdf", "doc_type": "complaint", "file_id": "11iZlu7EE9fTmFFJk41FbgfOZvBZDYW2N", "verified_pages": null}
+      ]
+    },
+    "us-sugar-imperial-2021": {
+      "folder_id": "1nlcAdVzIpl1m1HL3I7TPeUXJo6OtQ5tO",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Post_Trial_Brief.pdf", "doc_type": "post_trial_brief", "file_id": "1oZ7xNpnDR8CCQWzQT2HmPI82ZF1XnIcJ", "verified_pages": null},
+        {"title": "02_Trial_Exhibit_Opening_Statement.pdf", "doc_type": "opening_statement", "file_id": "1drnHqRclec9yi8EevNpCv_fVepBYzkDe", "verified_pages": null},
+        {"title": "03_Pretrial_Brief.pdf", "doc_type": "pretrial_brief", "file_id": "1kKN_1KII85KZzghtZGUIY5ct4y2rGYaP", "verified_pages": null},
+        {"title": "04_Complaint.pdf", "doc_type": "complaint", "file_id": "1bqvJBdQz93MYYaUJB5BZRRDp-HYoFjv2", "verified_pages": null}
+      ],
+      "gaps": ["District-court opinion (636 F. Supp. 3d 468) and 3d Cir. opinion are NOT in the folder."]
+    },
+    "unitedhealth-change-2022": {
+      "folder_id": "14zkAofA5fHQbsx6020kWZxYVCr7N_cQb",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Memorandum_Opinion_Redacted.pdf", "doc_type": "judicial_opinion", "file_id": "1LSE-_ENLooifZRFS70hr0jfsJNloinZJ", "verified_pages": null},
+        {"title": "02_Opening_Statement.pdf", "doc_type": "opening_statement", "file_id": "1WjYQP7e-oLejjbREjl8anFPdpATnDtaA", "verified_pages": null},
+        {"title": "03_Plaintiffs_Pretrial_Brief_Redacted.pdf", "doc_type": "pretrial_brief", "file_id": "1FIz07dUxzfIanoDUblfAUA90LuWuxXSO", "verified_pages": null},
+        {"title": "04_Complaint.pdf", "doc_type": "complaint", "file_id": "1uH2wORHdCyi4XYUET7n2MLu12eQTJFDX", "verified_pages": null}
+      ]
+    },
+    "booz-allen-everwatch-2022": {
+      "folder_id": "1NABGSHpAE-LjdSuywF9phYWHYN3YkUSn",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "Judge Blake’s Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "1UDRUjxEFfJ_EwHleYBwcxy_loFAVafEr", "verified_pages": null},
+        {"title": "THE UNITED STATES’ POST-HEARING BRIEF IN SUPPORT OF A PRELIMINARY INJUNCTION.pdf", "doc_type": "post_trial_brief", "file_id": "14-x_p9OaEqTHBAyxcwBdd6xFYQHOxct0", "verified_pages": null},
+        {"title": "Complaint.pdf", "doc_type": "complaint", "file_id": "1ld1X9wyVKxb-0v1_7HaCNI_eNuYYH3ip", "verified_pages": null}
+      ]
+    },
+    "assa-abloy-spectrum-2022": {
+      "folder_id": "192Vuk_I9b0bLGrnzqnSm1N9rCi2QU9oV",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "Final Judgement.pdf", "doc_type": "consent_decree", "file_id": "1hVhJfy3xAL9KFgT8RMn9gcV4uU3SZ688", "verified_pages": null},
+        {"title": "Complaint.pdf", "doc_type": "complaint", "file_id": "1_U_KdvqZCw5i7erH3roMizoDgyVGwh1h", "verified_pages": null}
+      ],
+      "gaps": ["No merits opinion exists (settled during trial with divestiture); pretrial briefs not in folder."]
+    },
+    "google-adtech-2023": {
+      "folder_id": "17AYS7KwsnzRIctfKLEggj6EXapiI0f_Z",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Memorandum_Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "17yZjprNKWdLAd5ofAn3wFVa8zrju4jMg", "verified_pages": null},
+        {"title": "02_Plaintiffs_Opening_Statement.pdf", "doc_type": "opening_statement", "file_id": "1BYrb3u4Zh7A7lZ49uQ1XECtkC-mifJ8m", "verified_pages": null},
+        {"title": "03_Complaint.pdf", "doc_type": "complaint", "file_id": "1x2vMhvzKNKPd8QY8fYdt0-D1Lv-h4O8w", "verified_pages": null},
+        {"title": "04_Remedies_Post_Trial_Brief.pdf", "doc_type": "post_trial_brief", "file_id": "1G4zyGGAJWFqfSWue4i32QJthSAJoCDXC", "verified_pages": null}
+      ]
+    },
+    "jetblue-spirit-2023": {
+      "folder_id": "1P3JHMYLkOUoCm9MDF-Jtv65K46uElZVs",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "01_Findings_of_Fact_and_Conclusions_of_Law.pdf", "doc_type": "judicial_opinion", "file_id": "1uwbIaSvMHKKu6u9C5Hwh5M2ojUJKdb2L", "verified_pages": null},
+        {"title": "02_Plaintiffs_Post_Trial_Brief.pdf", "doc_type": "post_trial_brief", "file_id": "1WR1MHUkC9MC1tBY1vllpFVMM0fZk7v3T", "verified_pages": null},
+        {"title": "03_Plaintiffs_Pretrial_Brief.pdf", "doc_type": "pretrial_brief", "file_id": "1SH6YJWlWLRdBxs_YrEzpWYBJDjnt-hSI", "verified_pages": null},
+        {"title": "04_Complaint.pdf", "doc_type": "complaint", "file_id": "13DFf1Ca62L8M9xef2wNr9qH_YEXYdG7x", "verified_pages": null}
+      ]
+    },
+    "live-nation-ticketmaster-2024": {
+      "folder_id": "13_qZpzGbTj-WmAr01GgmgXTFlgrU33Yk",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "    Amended Complaint (August 30, 2024).pdf", "doc_type": "complaint", "file_id": "14BOR9j4w2Hhyx5VKyVcwcJJFKRJQ4Osk", "verified_pages": null},
+        {"title": "Defendants’ Answer to Plaintiffs’ Amended Complaint (March 28, 2025).pdf", "doc_type": "answer", "file_id": "1EUFxqLv-MRcVmTZh49UdfZMmDESgTGXG", "verified_pages": null},
+        {"title": "    Opinion Granting in Part and Denying in Part Motion for Summary Judgment and Motion to Exclude Expert Testimony.pdf", "doc_type": "judicial_opinion", "file_id": "1N3V7LAA9VCCyf5QUAkewCE57d2wyQGBd", "verified_pages": null},
+        {"title": "Defendants’ Memorandum of Law in Support of Motion for Summary Judgment [Redacted].pdf", "doc_type": "summary_judgment_brief", "file_id": "1eaY7Fy1d2vEyru3U012SItdDcdnyV2kX", "verified_pages": null},
+        {"title": "Plaintiffs’ Corrected Memorandum of Law in Opposition to Defendants’ Motion for Summary Judgment [Seal].pdf", "doc_type": "summary_judgment_brief", "file_id": "1Vj38arSDyc7N0mnEd6kASx2t4G5I9RlO", "verified_pages": null},
+        {"title": "Defendants’ Reply Memorandum of Law in Support of Defendants’ Motion for Summary Judgment [Redacted].pdf", "doc_type": "summary_judgment_brief", "file_id": "1a6GqSyksAsApn2IKlCEpr9753m4__HcP", "verified_pages": null},
+        {"title": "Plaintiffs’ Memorandum of Law in Opposition to Defendants’ Motion to Exclude Certain Opinions and Testimony of Plaintiffs’ Expert Dr. Nicholas Hill [Redacted].pdf", "doc_type": "daubert_brief", "file_id": "1lUMiuv5i6h4N3BIYZoGcFPqJ5sWhlj4t", "verified_pages": null},
+        {"title": "Plaintiffs’ Memorandum in Support of Motion to Partially Exclude the Expert Testimony of Paul K. Meyer [Redacted].pdf", "doc_type": "daubert_brief", "file_id": "16YSPCF4smF51sHPjf1lj1OTC-WtDWy80", "verified_pages": null},
+        {"title": "Plaintiffs’ Reply Memorandum of Law in Support of Motion to Partially Exclude the Expert Testimony of Paul K. Meyer [Redacted].pdf", "doc_type": "daubert_brief", "file_id": "1J1b7MFR0ECw_H6XdPDLD0V10zu38aul4", "verified_pages": null},
+        {"title": "Defendants’ Memorandum of Law in Opposition to Plaintiffs’ Motion to Partially Exclude the Expert Testimony of Paul K. Meyer [Redacted].pdf", "doc_type": "daubert_brief", "file_id": "1YoMtV171Y1Dv9fTD51P8c9pKKzhYrOOZ", "verified_pages": null}
+      ],
+      "notes": "SJ/Daubert opinion exists in folder — the case has progressed past summary judgment; index outcome 'pending' refers to final merits."
+    },
+    "steves-sons-jeldwen": {
+      "folder_id": "1TJbHiKdF7bhEcKyfMmPqhg_6FcQNG3mg",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "Fourth Circuit Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "1zXXeOyrbz_zXnYzAOqIF62CGFWvBzrMG", "verified_pages": null},
+        {"title": "BRIEF FOR THE UNITED STATES OF AMERICA AS AMICUS CURIAE IN SUPPORT OF PLAINTIFF-APPELLEE.pdf", "doc_type": "amicus_brief", "file_id": "1tT7d_TsPU03S0I45BXlvlES_yAcRTScp", "verified_pages": null},
+        {"title": "Steves's Partial Summary Judgment Brief.pdf", "doc_type": "summary_judgment_brief", "file_id": "1Io6Kmp0K37UBajLl5so77_pJpzstV_Mt", "verified_pages": null},
+        {"title": "JELD-WEN to Steves Summary Judgment Motion's  Opposition.pdf", "doc_type": "summary_judgment_brief", "file_id": "1Q1Bb_wydw7G2GF3LgYqhIoQEW7fClSng", "verified_pages": null},
+        {"title": "JELD-WEN Reply.pdf", "doc_type": "summary_judgment_brief", "file_id": "1EADLy5lYdN8dnh1RwJChqgfxj2rXWIvR", "verified_pages": null},
+        {"title": "PLAINTIFF STEVES AND SONS, INC.’S MEMORANDUM IN SUPPORT OF ITS MOTION FOR JUDGMENT AS A MATTER OF LAW.pdf", "doc_type": "jmol_brief", "file_id": "1kFNWJbP6LIYRLX0rXDadxG7aPp3M4Wb4", "verified_pages": null},
+        {"title": "JELD-WEN Rule 50 : Judgment as a Matter of Law Motion.pdf", "doc_type": "jmol_brief", "file_id": "10wcVFfmsRNOKDGbAX_pm-NhrsNUNwrwF", "verified_pages": null},
+        {"title": "Proposed Jury Instructions.pdf", "doc_type": "procedural", "file_id": "1wY5_nahy21_6LI-n4HucOlKPxcCELxL9", "verified_pages": null}
+      ]
+    },
+    "duke-nte-carolinas": {
+      "folder_id": "1nY9kaAGl3a3T9lMbXmnCFVG6r1ojAoie",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "FOURTH CIRCUIT OPINION.pdf", "doc_type": "judicial_opinion", "file_id": "1bcX9MhcRE1x4eq_sVOIkHSEY-oRgpztG", "verified_pages": null},
+        {"title": "OPINION 2.pdf", "doc_type": "judicial_opinion", "file_id": "184VythMa4T2v77risc9PMdST_LCTeefh", "verified_pages": null},
+        {"title": "Duke's Cert Petition.pdf", "doc_type": "cert_petition", "file_id": "118WHL3gFhDuhFQmubl_c1J6yj7Un1hQI", "verified_pages": null},
+        {"title": "NTE Brief in Opposition（Respondents）.pdf", "doc_type": "appellate_brief", "file_id": "1AGnC6vLmRRBvCCvbxmBK5OhT32fS8Lm9", "verified_pages": null},
+        {"title": "DOJ : FTC Amicus Brief.pdf", "doc_type": "amicus_brief", "file_id": "1ydZk1jJe1kNlLCOf4lrsVkVNW2NlC2Hb", "verified_pages": null},
+        {"title": "Professors Daniel Crane & Herbert Hovenkamp Amicus Brief.pdf", "doc_type": "amicus_brief", "file_id": "1ia1O4tJ2YLf49zuI-aofc-Ur4bItijNE", "verified_pages": null},
+        {"title": "Chamber of Commerce Amicus Brief.pdf", "doc_type": "amicus_brief", "file_id": "18A7Xabjl9ckECxL0yQaXxJ0uePDIle3s", "verified_pages": null},
+        {"title": "CCIA : NetChoice : CTA : TechNet Amicus Brief.pdf", "doc_type": "amicus_brief", "file_id": "1bfFo7_aCjcFqimwVEuOPSLiadAaFbN8y", "verified_pages": null}
+      ],
+      "notes": "Folder shows Supreme Court cert-stage litigation (Duke petitioning after a 4th Cir. ruling; DOJ/FTC amicus present). Index outcome remains UNVERIFIED — the folder's opinions should be read to update the record."
+    },
+    "ninth-inning-nfl-sunday-ticket": {
+      "folder_id": "1lNezoykfKQZ3aVD9p6813fKAONKEtxZu",
+      "grounding_status": "documents_indexed",
+      "documents": [
+        {"title": "complaint.pdf", "doc_type": "complaint", "file_id": "1KGXLKuAT6BnfAsHZv5JAX-hEv2MT_3ct", "verified_pages": null},
+        {"title": "Ninth Circuit Opinion.pdf", "doc_type": "judicial_opinion", "file_id": "1xNYD0xHQbG3-1g2rBLTDyNrM1-80L-KR", "verified_pages": null},
+        {"title": "Petition for Certiorari.pdf", "doc_type": "cert_petition", "file_id": "18CTjFukPQRFKLTm2CrK5wNbvzy8jji8d", "verified_pages": null},
+        {"title": "Respondents Brief in Opposition.pdf", "doc_type": "appellate_brief", "file_id": "1k_m4TWttsc8pcYP9ItKyAU1zGD_Iah9F", "verified_pages": null},
+        {"title": "Petitioners Reply.pdf", "doc_type": "appellate_brief", "file_id": "1zu_zTX6dj5Jwbhpkdf7Wpz--EwSS1oMp", "verified_pages": null}
+      ],
+      "gaps": ["The 2024 JMOL order vacating the jury verdict is NOT in the folder."]
+    }
+  }
+}

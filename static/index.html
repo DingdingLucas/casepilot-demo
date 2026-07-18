@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CasePilot — Antitrust Case Intelligence</title>
+<style>
+  :root {
+    --bg: #f6f5f1; --panel: #ffffff; --ink: #1c1c1e; --muted: #6b6b70;
+    --line: #e3e1da; --accent: #1f4e46; --accent-soft: #e7efed;
+    --high: #1a7f4e; --medium: #b07d10; --low: #b3372f;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.55 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 24px 80px; }
+  header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 26px; }
+  header h1 { font-size: 22px; margin: 0; letter-spacing: -0.02em; }
+  header h1 span { color: var(--accent); }
+  header p { margin: 0; color: var(--muted); font-size: 13px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 380px; gap: 22px; align-items: start; }
+  @media (max-width: 960px) { .grid { grid-template-columns: 1fr; } }
+
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 6px; }
+  input[type=text], textarea, select {
+    width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
+    font: inherit; background: #fcfbf9; color: var(--ink);
+  }
+  input:focus, textarea:focus, select:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+  textarea { min-height: 96px; resize: vertical; }
+  .row { display: flex; gap: 12px; }
+  .row > div { flex: 1; }
+  .field { margin-bottom: 14px; }
+  button.primary {
+    background: var(--accent); color: #fff; border: 0; border-radius: 8px;
+    padding: 11px 22px; font: inherit; font-weight: 600; cursor: pointer;
+  }
+  button.primary:disabled { opacity: 0.5; cursor: default; }
+  .hint { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+  .error { background: #fdeceb; border: 1px solid #f3c2be; color: #8f2b23; border-radius: 8px; padding: 10px 14px; margin-top: 14px; display: none; }
+
+  /* results */
+  #summary { margin: 22px 0 14px; font-size: 15px; color: var(--ink); display: none; }
+  #summary strong { color: var(--accent); }
+  .case { margin-bottom: 16px; }
+  .case h3 { margin: 0 0 2px; font-size: 16.5px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .rel { background: var(--accent); color: #fff; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 9px; }
+  .meta { color: var(--muted); font-size: 12.5px; margin-bottom: 8px; }
+  .meta a { color: var(--accent); }
+  .why { margin: 6px 0 10px; }
+  .args li, .cautions li { margin-bottom: 7px; }
+  .pill { display: inline-block; font-size: 10.5px; font-weight: 700; border-radius: 4px; padding: 1px 6px; color: #fff; vertical-align: 1px; margin-right: 6px; }
+  .pill.high { background: var(--high); } .pill.medium { background: var(--medium); } .pill.low { background: var(--low); }
+  .basis { color: var(--muted); font-size: 12.5px; display: block; }
+  .cautions { border-left: 3px solid var(--low); padding-left: 12px; list-style: none; margin: 8px 0 0; }
+  .cautions li::before { content: "⚠ "; color: var(--low); }
+  details summary { cursor: pointer; font-weight: 600; font-size: 13.5px; color: var(--accent); margin-top: 6px; }
+  .usage { font-size: 11.5px; color: var(--muted); margin-top: 8px; display: none; }
+
+  /* chat */
+  #chatCard { position: sticky; top: 20px; display: none; }
+  #chatCard h2 { font-size: 15px; margin: 0 0 12px; }
+  #chatLog { max-height: 480px; overflow-y: auto; margin-bottom: 12px; }
+  .msg { border-radius: 10px; padding: 9px 13px; margin-bottom: 9px; font-size: 14px; white-space: pre-wrap; }
+  .msg.user { background: var(--accent-soft); margin-left: 24px; }
+  .msg.assistant { background: #f4f3ef; margin-right: 12px; }
+  #chatForm { display: flex; gap: 8px; }
+  #chatInput { flex: 1; }
+  .spinner { display: none; margin: 24px auto; width: 28px; height: 28px; border: 3px solid var(--line); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.9s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .examples { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .examples button { background: var(--accent-soft); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-size: 12.5px; cursor: pointer; color: var(--accent); }
+
+  /* draft */
+  #draftSection { margin-top: 4px; }
+  .draft { margin-top: 14px; font-size: 14.5px; }
+  .draft h1 { font-size: 18px; margin: 4px 0 12px; color: var(--accent); }
+  .draft h2 { font-size: 15px; margin: 18px 0 6px; border-bottom: 1px solid var(--line); padding-bottom: 4px; }
+  .draft ul { margin: 6px 0; padding-left: 22px; }
+  .draft li { margin-bottom: 5px; }
+  .draft p { margin: 7px 0; }
+  .draft .cursor { display: inline-block; width: 7px; height: 15px; background: var(--accent); animation: spin 1s steps(2) infinite; vertical-align: -2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Case<span>Pilot</span></h1>
+    <p>Antitrust case intelligence · demo database</p>
+  </header>
+
+  <div class="grid">
+    <div>
+      <div class="card">
+        <div class="row">
+          <div class="field">
+            <label for="role">Your role</label>
+            <input type="text" id="role" placeholder="e.g. Economic consultant, defense side">
+          </div>
+          <div class="field" style="max-width:180px">
+            <label for="posture">Posture</label>
+            <select id="posture">
+              <option value="auto">Auto-detect</option>
+              <option value="plaintiff">Plaintiff / agency</option>
+              <option value="defendant">Defendant</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="query">Describe your matter</label>
+          <textarea id="query" placeholder="e.g. Defending a two-sided-platform merger; DOJ alleges loss of a low-price disruptor and relies on GUPPI screens…"></textarea>
+          <div class="examples">
+            <button data-q="Defending a horizontal merger of the #2 and #3 health insurers; DOJ alleges unilateral effects in local commercial markets.">Health-insurer merger defense</button>
+            <button data-q="Advising a plaintiff alleging exclusive dealing that forecloses the dominant distribution channel for a consumer product.">Exclusive-dealing plaintiff</button>
+            <button data-q="Monopsony theory: merger would depress prices paid to upstream suppliers (author advances).">Monopsony merger</button>
+          </div>
+        </div>
+        <button class="primary" id="searchBtn">Find relevant cases</button>
+        <div class="hint">Results are ranked by fit on theory of harm, market, and economic models. Every case links to source documents on Drive.</div>
+        <div class="error" id="searchError"></div>
+      </div>
+
+      <div class="spinner" id="spinner"></div>
+      <p id="summary"></p>
+      <div id="results"></div>
+      <div id="draftSection" style="display:none">
+        <button class="primary" id="draftBtn">Draft arguments from these cases</button>
+        <div class="card draft" id="draftCard" style="display:none"></div>
+      </div>
+      <div class="usage" id="usage"></div>
+    </div>
+
+    <div class="card" id="chatCard">
+      <h2>Ask about these results</h2>
+      <div id="chatLog"></div>
+      <form id="chatForm">
+        <input type="text" id="chatInput" placeholder="e.g. Which expert testified in the Aetna case?">
+        <button class="primary" type="submit" id="chatBtn">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let lastResult = null;
+let chatHistory = [];   // [{role, content}] sent to the server each turn
+
+document.querySelectorAll(".examples button").forEach(b =>
+  b.addEventListener("click", () => { $("query").value = b.dataset.q; }));
+
+$("searchBtn").addEventListener("click", runSearch);
+$("query").addEventListener("keydown", e => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) runSearch(); });
+
+async function runSearch() {
+  const query = $("query").value.trim();
+  const err = $("searchError");
+  err.style.display = "none";
+  if (!query) { err.textContent = "Please describe your matter."; err.style.display = "block"; return; }
+
+  $("searchBtn").disabled = true;
+  $("spinner").style.display = "block";
+  $("results").innerHTML = ""; $("summary").style.display = "none";
+  $("usage").style.display = "none"; $("chatCard").style.display = "none";
+  $("draftSection").style.display = "none"; $("draftCard").style.display = "none";
+  $("draftCard").innerHTML = "";
+
+  try {
+    const r = await fetch("/api/search", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ query, role: $("role").value, posture: $("posture").value }),
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+    renderResults(data);
+    startChat(query, data);
+  } catch (e) {
+    err.textContent = e.message; err.style.display = "block";
+  } finally {
+    $("searchBtn").disabled = false;
+    $("spinner").style.display = "none";
+  }
+}
+
+function esc(s) { const d = document.createElement("div"); d.textContent = s ?? ""; return d.innerHTML; }
+
+function renderResults(data) {
+  lastResult = data;
+  $("summary").innerHTML = `<strong>Read of your matter:</strong> ${esc(data.query_summary)}`;
+  $("summary").style.display = "block";
+  const out = [];
+  if (!data.matches.length) out.push(`<div class="card"><strong>No relevant cases in your database.</strong> All 28 cases were reviewed and none is genuinely on point for this matter — see the summary above for the closest candidates. We only return cases from your database, never outside sources.</div>`);
+  for (const m of data.matches) {
+    const args = m.arguments_to_use.map(a =>
+      `<li><span class="pill ${a.confidence}">${a.confidence.toUpperCase()}</span>${esc(a.argument)}
+        <span class="basis">${esc(a.confidence_basis)}</span></li>`).join("");
+    const cauts = m.cautions.map(c => `<li>${esc(c)}</li>`).join("");
+    out.push(`<div class="card case">
+      <h3><span class="rel">${m.relevance}</span> ${esc(m.name)}</h3>
+      <div class="meta">${esc(m.citation)} · Outcome: ${esc(m.outcome)} · Record confidence: ${esc(m.record_confidence)}
+        ${m.folder_url ? `· <a href="${esc(m.folder_url)}" target="_blank" rel="noopener">Source documents ↗</a>` : ""}</div>
+      <div class="why">${esc(m.why_it_fits)}</div>
+      <details open><summary>Arguments to use (${m.arguments_to_use.length})</summary><ul class="args">${args}</ul></details>
+      ${cauts ? `<details><summary>Cautions (${m.cautions.length})</summary><ul class="cautions">${cauts}</ul></details>` : ""}
+    </div>`);
+  }
+  $("results").innerHTML = out.join("");
+  if (data.matches.length) $("draftSection").style.display = "block";
+  if (data.usage) {
+    const u = data.usage;
+    $("usage").textContent = `tokens — input: ${u.input_tokens}, cache read: ${u.cache_read_input_tokens}, cache write: ${u.cache_creation_input_tokens}, output: ${u.output_tokens}`;
+    $("usage").style.display = "block";
+  }
+}
+
+function startChat(query, data) {
+  // Seed the conversation with the search context so follow-ups are grounded.
+  const context = "I searched for the following matter:\n" + query +
+    "\n\nThe app returned these results (JSON):\n" +
+    JSON.stringify({ query_summary: data.query_summary, matches: data.matches }) +
+    "\n\nI will now ask follow-up questions about these cases.";
+  chatHistory = [
+    { role: "user", content: context },
+    { role: "assistant", content: "Got it — I have your search results. What would you like to know about these cases?" },
+  ];
+  $("chatLog").innerHTML = "";
+  addMsg("assistant", "I have your results loaded. Ask me anything about these cases — arguments, experts, how courts treated the economic models, or how to distinguish adverse holdings.");
+  $("chatCard").style.display = "block";
+}
+
+function addMsg(role, text) {
+  const div = document.createElement("div");
+  div.className = "msg " + role;
+  div.textContent = text;
+  $("chatLog").appendChild(div);
+  $("chatLog").scrollTop = $("chatLog").scrollHeight;
+  return div;
+}
+
+// Minimal markdown renderer for the draft (headings, bold, italics, bullets).
+function mdToHtml(md) {
+  const lines = md.split("\n");
+  const out = [];
+  let inList = false;
+  const inline = (s) => esc(s)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
+  for (const line of lines) {
+    const l = line.trim();
+    if (/^[-*] /.test(l)) {
+      if (!inList) { out.push("<ul>"); inList = true; }
+      out.push(`<li>${inline(l.slice(2))}</li>`);
+      continue;
+    }
+    if (inList) { out.push("</ul>"); inList = false; }
+    if (l.startsWith("## ")) out.push(`<h2>${inline(l.slice(3))}</h2>`);
+    else if (l.startsWith("# ")) out.push(`<h1>${inline(l.slice(2))}</h1>`);
+    else if (l) out.push(`<p>${inline(l)}</p>`);
+  }
+  if (inList) out.push("</ul>");
+  return out.join("");
+}
+
+async function readSSE(response, onText) {
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buf = "";
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += decoder.decode(value, { stream: true });
+    const chunks = buf.split("\n\n");
+    buf = chunks.pop();
+    for (const chunk of chunks) {
+      if (!chunk.startsWith("data: ")) continue;
+      const payload = chunk.slice(6);
+      if (payload === "[DONE]") continue;
+      const obj = JSON.parse(payload);
+      if (obj.error) throw new Error(obj.error);
+      onText(obj.text);
+    }
+  }
+}
+
+$("draftBtn").addEventListener("click", async () => {
+  if (!lastResult || !lastResult.matches.length) return;
+  const btn = $("draftBtn"), card = $("draftCard");
+  btn.disabled = true; btn.textContent = "Drafting…";
+  card.style.display = "block";
+  card.innerHTML = '<span class="cursor"></span>';
+  let full = "";
+  try {
+    const r = await fetch("/api/draft", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        query: $("query").value.trim(),
+        role: $("role").value,
+        matches: lastResult.matches,
+      }),
+    });
+    if (!r.ok) { const d = await r.json().catch(() => ({})); throw new Error(d.error || `HTTP ${r.status}`); }
+    await readSSE(r, (t) => {
+      full += t;
+      card.innerHTML = mdToHtml(full) + '<span class="cursor"></span>';
+    });
+    card.innerHTML = mdToHtml(full);
+    btn.textContent = "Redraft arguments";
+  } catch (err) {
+    card.innerHTML = `<p>⚠ ${esc(err.message)}</p>`;
+    btn.textContent = "Draft arguments from these cases";
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+$("chatForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const q = $("chatInput").value.trim();
+  if (!q || $("chatBtn").disabled) return;
+  $("chatInput").value = "";
+  addMsg("user", q);
+  chatHistory.push({ role: "user", content: q });
+  const bubble = addMsg("assistant", "…");
+  $("chatBtn").disabled = true;
+
+  try {
+    const r = await fetch("/api/chat", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ history: chatHistory, role: $("role").value }),
+    });
+    if (!r.ok) { const d = await r.json().catch(() => ({})); throw new Error(d.error || `HTTP ${r.status}`); }
+    let full = "";
+    await readSSE(r, (t) => {
+      full += t;
+      bubble.textContent = full;
+      $("chatLog").scrollTop = $("chatLog").scrollHeight;
+    });
+    chatHistory.push({ role: "assistant", content: full });
+  } catch (err) {
+    bubble.textContent = "⚠ " + err.message;
+    chatHistory.pop();   // drop the failed user turn so history stays valid
+  } finally {
+    $("chatBtn").disabled = false;
+    $("chatInput").focus();
+  }
+});
+</script>
+</body>
+</html>
