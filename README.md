@@ -1,8 +1,17 @@
-# CasePilot — Antitrust Case Intelligence (Demo)
+# CasePilot — Verifiable AI for Evidence-Intensive Economic Work
 
-AI research assistant for economic consulting and antitrust litigation. A user
-enters their **role** and describes their **matter** in plain language; CasePilot
-searches a curated database of 28 landmark U.S. antitrust cases and returns:
+CasePilot is a verifiable AI platform for evidence-intensive economic work.
+Unlike generic AI assistants, it searches the **entire knowledge base**, not just
+a handful of retrieved documents, and **links every answer to original sources**.
+We built our first application for antitrust litigation, helping economic
+consultants instantly find relevant precedents, supporting evidence, and draft
+arguments they can trust.
+
+## The demo application
+
+A user enters their **role** and describes their **matter** in plain language;
+CasePilot searches a curated database of 28 landmark U.S. antitrust cases and
+returns:
 
 - **Ranked precedents** — by theory of harm, market/industry, economic models,
   and litigation posture (including adverse authority, with distinguishing advice)
