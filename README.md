@@ -10,7 +10,7 @@ arguments they can trust.
 ## The demo application
 
 A user enters their **role** and describes their **matter** in plain language;
-CasePilot searches a curated database of 28 landmark U.S. antitrust cases and
+CasePilot searches a curated database of landmark U.S. antitrust cases and
 returns:
 
 - **Ranked precedents** — by theory of harm, market/industry, economic models,
