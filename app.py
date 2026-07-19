@@ -30,6 +30,7 @@ from flask import Flask, Response, jsonify, request, send_from_directory
 MODEL = "claude-opus-4-8"
 MAX_RESULTS = 6
 CASES_PATH = "cases_index.json"
+GROUNDING_PATH = "evidence_grounding.json"
 
 # ---------------------------------------------------------------- schemas ----
 
@@ -164,6 +165,19 @@ truthfully and plainly (e.g. "Your database has no case covering X"), point to t
 closest cases it does have, and suggest verifying details against the underlying case
 documents (each record has a folder_url). Be concise and practical; use short paragraphs
 or bullet lists. Never invent cases, holdings, citations, or experts.
+
+When the index cannot answer but the case's underlying documents plausibly could (per the
+DOCUMENT INVENTORY — e.g., an expert's methodology lives in that case's expert report):
+1. Say truthfully that the curated index doesn't contain it.
+2. Name the specific document(s) from the inventory that likely contain the answer, with
+   their Drive links (use the file_id link pattern).
+3. Offer to retrieve and read the document for them.
+4. If the user accepts the offer, be honest: full-text document retrieval is the next
+   product upgrade and is not yet live in this demo — so give them the direct document
+   link to read now, and note that the upgraded version will read it and answer with
+   page-pinpointed citations.
+Never pretend to have read a PDF, and never fabricate document contents or page numbers —
+you know only the document titles, not what is inside them.
 """
 
 # ------------------------------------------------------------------- app ----
@@ -200,13 +214,22 @@ def load_index(path: str) -> tuple[str, dict]:
 
 
 RAW_INDEX, LOOKUP = load_index(CASES_PATH)
+with open(GROUNDING_PATH, "r", encoding="utf-8") as f:
+    RAW_GROUNDING = f.read()  # real per-case document inventory (titles + Drive file IDs)
 
-# One stable block (rules + index), byte-identical across every request on both
-# endpoints, with the cache breakpoint on it — so /api/search and /api/chat share
-# the same warm prefix. Mode-specific text goes AFTER the breakpoint.
+# One stable block (rules + index + document inventory), byte-identical across every
+# request on all endpoints, with the cache breakpoint on it — so /api/search,
+# /api/chat, and /api/draft share the same warm prefix. Mode-specific text goes
+# AFTER the breakpoint.
 CACHED_BLOCK = {
     "type": "text",
-    "text": RULES + "\n\n=== CASE INDEX (JSON) ===\n" + RAW_INDEX,
+    "text": (RULES
+             + "\n\n=== CASE INDEX (JSON) ===\n" + RAW_INDEX
+             + "\n\n=== DOCUMENT INVENTORY (JSON) ===\n"
+             + "Actual documents in each case's Drive folder (titles and file IDs are real "
+             + "and verified; per-page contents are NOT loaded — you have not read these "
+             + "PDFs). Link pattern: https://drive.google.com/file/d/{file_id}/view\n"
+             + RAW_GROUNDING),
     "cache_control": {"type": "ephemeral", "ttl": "1h"},  # stays warm across a demo day
 }
 SEARCH_SYSTEM = [CACHED_BLOCK]
